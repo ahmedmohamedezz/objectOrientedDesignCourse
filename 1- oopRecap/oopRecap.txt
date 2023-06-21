@@ -1,0 +1,38 @@
+- Basics of OOP
+  - main concept of oop is wrapping pieces of data , and behavior related to that data
+  - classes can be represented as a blueprint , and objects constructed from that blueprint
+  - object data represent it's state , and the object's methods define it's behavior
+  - we may have several classes with common behavior and state , so this may be a good place to start thinking to use inheritance
+  - subclasses(child classes) inherits all the behaviors and states of the superclass(parent classe) , and it can also define it's own behavior and state 
+  - subclasses can override the behavior of superclasses 
+						------------------------------------------------------------------------------------------------------------
+- Main Concepts in OOP
+  - there are 4 main concepts that differentiate OOP from other progamming paradigms => ( abstraction , polymorphism , encapsulation , inheritance )
+  - abstraction : model of an object in a specific context that represents relevant details , and ignores the rest
+	  - the class Airplane may represent different models => in a booking system it wouldn't be the same as in flight simulator app ( each has different details )
+  - encapsulation : ability of object to hide parts of it's states and behaviors from other objects , while exposing an interface ( contract ) to control interaction with other objects
+	  - interfaces use the concepts ( abstraction and encapsulation ) , they care mainly about behavior of objects , and that's why they almost contains methods only
+  - inheritance : ability to build classes on the top of existing ones , it's mainly related to code reuse
+	  - if some class extends/inherits other => it must implement the interfaces the super class implenents , and implement any abstract methods in the super class
+	  - you can't hide a method from a super class in a sub class even if it's not useful for the base class
+	  - to sum up : 
+		  - advantanges of using inheritance => code reuse
+		  - disadvantages of inheritance => it may force you to have behavior you don't need
+  - polymorphism : ability of an object to pretend to be something else based on the type , polymorphism cares about "behaviors"
+						------------------------------------------------------------------------------------------------------------
+- Relations Between Objects : 
+  - in addition to inheritance and interfaces implementation , there are other types of relations like ( dependency , association , aggregation , composition )
+  - dependency : most basic and weak relation between classes 
+	  - dependency is when changes in one class may lead to modification in another class 
+	  - dependency doesn't establish a permanent interaction between objects
+	  - example => passing object to function to do some stuff with it ( not member object of the class )
+  - association : special kind of dependcy where one object uses/interact/has access to other objects
+	  - association is related to member objects in class ( field that is accessible from any of the class methods )
+  - aggregation : special type of association in which a class represents a container of other objects => "has" other objects
+	- aggregation can express ( one-to-many , many-to-many , whole-part ) relations
+	- aggregation represented in UML diagrams by an empty diamond on the container side and simple arrow on the component side
+	- in aggregation the component can exist without the container , and can be associated with many containers
+  - composition : aggregation where the component can only exist as part of the container
+	  - composition drawn in UML like aggregation , but with filled diamond
+
+

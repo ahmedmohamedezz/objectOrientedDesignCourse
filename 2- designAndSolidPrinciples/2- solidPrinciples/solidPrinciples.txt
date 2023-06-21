@@ -1,0 +1,49 @@
+ - Solid Principles : abberviation for 5 common principles that are intended to make software designs more flexible , maintainable , and understandable 
+   - as with everything , succissive usage of those principles may make a design more complicated than it should be , we're not required to apply all the five principles at the same time
+
+ 1 - Single responsibility principle : a class should have only 1 reason to change
+    - when you have a class that is starting to be bigger and more complex , you should start to think to separate responsibilities of that class in a way that the class is responsible for only one functionality , and it fully handles and encapsulate that functionality
+    - using this principle are meant to reduce complexity , and distribute responsibilities
+
+ 								----------------------------------------------------------------------
+
+ 2 - Open Closed Principle : classes should be open for extension & closed for modification
+     - the principle goal is to keep existing code from breaking when adding new feutures
+     - a class is open => if you can extend it , and do whatever you want in the subclass ( add new behaviors , fields , override , ..etc )
+     - a class is closed => if it's complete / it's interface is cleary defined and is not going to change in the future
+     - extending a class should not be for fixing bugs in it => subclasses are not meant to fix superclasses bugs
+     - if we have a class that is completed & tested and being used by some clients , changing the code of that class is risky => so you can extend that class and apply the changes you want and now the new & old clients are satisfied
+
+ 								----------------------------------------------------------------------
+
+ 3 - Liskov substitution principle : when extending a class , remember that you should be able to substitute subclass objects in place of superclass objects without breaking the client code
+     - this principle goal is to keep subclasses behavior compatible with the superclass behavior
+     - LSP can be represented by a set of requirements : 
+        a. parameter types of a method in subclass should be compatible / a generic type of the parameters of that method in the superclass
+                feedBaseClass(Cat c) ===> feedsubClass(Animal c) => good      ,,,,         feedSubClass(cuteCat c) => bad
+           this way the client code of super class still works ( Cat is an Animal ) , [ objects of subclass can be passed instead of objects of superclass ]
+        b. return type of a method in subclass should be compatible / a subtype of the return type of that method in the superclass
+                buyCat() : cat ===> buyCat() cuteCat => good      ,,,,         feedSubClass() : Animal => bad
+        c. method in subclass should not throw exceptions not handled by superclass
+        d. subclass should't strenghten pre-conditions 
+                fun(int x)  ===>  fun(int x && x is +ve) => bad , because it can't substitute base class function that works with all integers
+        e. subclass should't weaken post-conditions 
+                if a function in base class operate on data base and close it after it finishes , the overrided version in subclass shouldn't leave the data base opened after operation
+        f. subclass behavior shouldn't replace / completely hide superclass behavior 
+                baseClass => calculator & childClass => taxCalculator
+        g. subclass shouldn't change the private fields values in base class ( allowed in some languages & should be avoided )
+
+ 								----------------------------------------------------------------------
+
+ 4. Interface segregation principle : client's shouldn't depend on methods they don't use
+    - this principle aims to break "fat" interfaces into more narrow / specific ones
+    - clients should implement only the methods they use , otherwise everytime the client code will be broken if a method it don't use changed in the interface
+    - since a class can implement many interfaces , refine fat interfaces and any class can implement all the interfaces it use
+    - you're also should keep the balance , and don't separate interfaces that is already refined => the more interfaces you have , the more complex the code
+
+ 								----------------------------------------------------------------------
+ 5. Dependency inversion principle : high level classes shouldn't depend on low level classes , both should depend on abstractions
+    - low-level classes : implement basic operations => [ operate on disk , write to DB , transfer over a network ]
+    - high-level classes : contains the complex business logic , and directs low-level classes to do something
+    - if the high-level classes depend on low-level classes => reduces reuse of high-level classes , since they should be modified after any changes in low-level classes
+    - DIP often goes along with OCP : since we can extend low-level classes without affecting any business logic level class

@@ -1,0 +1,18 @@
+- design patterns : solutions to commonly occurring problems in software design
+  - patterns are a general concepts , not a specific code like functions , or libraries
+  - algorithm is more like a recipe => you implement specific steps ,, but a design pattern is like a blue print => you know the final result , but not the order of implementation
+- what does design patterns consist of ? 
+  - intent : breif description of the problem and the solution
+  - motivation : explanation of the problem , and the solution the pattern makes it possible
+  - structure : set of classes forming the pattern and the relations between them
+  - code example : in a popular programming language to make sure you understood the idea behind the pattern
+					----------------------------------------------------------------------------------------------------------------------
+- Classification Of Patterns : patterns differ in thier complexity , level of detail , and scale of applicability to entire system
+  - the most basic and low level patterns are called "idioms" => usually apply to a single programming language
+  - the most universal and high level patterns are called "architectural patterns" => apply to almost all languages , and can be used to design the architecture of entire app.
+  - patterns also can be categorized by thier intent , or purpose
+    - creational patterns : provide object creation mechanisms that improve flexibility and reuse of existing code
+    - structural patterns : explain how to assemble objects into larger structures , keeping the structures flexible and efficient
+    - behavioral patterns : take care of effective communication and assignment of responsibilities between objects
+
+ 

@@ -1,0 +1,31 @@
+- Features Of Good Design : 
+  1 - code reuse : saves effots and development costs , it simply tries to use existing code in new contexts
+      - tight coupling between components , dependencies on concrete classes , hardcoded operations ==> reduce flexibility and makes it harder to reuse code
+      - on the other hand to make a code reusable , this may result in a complicated components
+
+  2 - extensibility :
+     - the only constant thing in software is CHANGE
+     - your app must change overtime , so you need to take into consideration what parts of the code seems to change in next phases ?
+						-----------------------------------------------------------------------------------------------------------
+- Design Principles : 
+  - Encapsulate what varies : identify what aspects of your  application that vary , and separate them from what stays the same
+    - main goal => minimize effect caused by changes in code
+    - separating parts that changes in independent modules lets you save the time for writing and testing them
+    - less time you spend on making changes => more time you have to implement features 
+    - encapsulation can be at method level , or class level
+ 
+  - Program to an interface , not an implementation : depend on abstractions , not on concrete classes
+    - some design is called flexible if it can be extended easily without breaking any existing code
+    - if some class needs another , you may start thinking by making them dependent on each other ( example => aggregation between concrete classes )
+    - but then if one of them changed , the other class's code may be broken ( change in function names , signature , ...etc )
+    - one solution is to be dependent on an interface ( contract ) , so that every class uses it must follow the contract rules
+  
+  - Favor composition over inheritance : 
+    - somethings to be aware of when using inheritance :
+       - extra unwanted functionality in subclasses ( forces by super class )
+       - any changes in super class will affect subclasses
+       - subclasses are tightly coupled to super class
+       - with multilevel inheritance , you may have a class explosion ( too many combinations of classes )
+       - overrided behavior of subclasses must match the behavior of super class ( substitutable objects )
+   - using composition ( or aggregation ) instead of inheritance can make our code simpler and less likely to have problems of inheritance
+   - also using composition will enable runtime changes , which is not available using inheritance

@@ -6,7 +6,9 @@
   - motivation : explanation of the problem , and the solution the pattern makes it possible
   - structure : set of classes forming the pattern and the relations between them
   - code example : in a popular programming language to make sure you understood the idea behind the pattern
+
 					----------------------------------------------------------------------------------------------------------------------
+
 - Classification Of Patterns : patterns differ in thier complexity , level of detail , and scale of applicability to entire system
   - the most basic and low level patterns are called "idioms" => usually apply to a single programming language
   - the most universal and high level patterns are called "architectural patterns" => apply to almost all languages , and can be used to design the architecture of entire app.
@@ -15,4 +17,10 @@
     - structural patterns : explain how to assemble objects into larger structures , keeping the structures flexible and efficient
     - behavioral patterns : take care of effective communication and assignment of responsibilities between objects
 
+					----------------------------------------------------------------------------------------------------------------------
+
+- Examples On Each Patterns Type : 
+	- creational patterns ( factory , abstract factory , singleton , builder , prototype )
+	- structrural patterns ( adapter , decorator , composite , facade , brigde , proxy , flyweight )
+	- behavioral patterns ( strategy , template , command , observer ,  chaing of resposibility , momento , iterator , mediator , state , visitor )
  

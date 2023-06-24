@@ -1,0 +1,47 @@
+- Strategy : behavioral desing pattern that lets you define a family of algorithms , put each of them in a separate class , and make thier objects interchangeable
+- the strategy pattern suggests that you take a class that does a specific thing in a lot of different ways and extract all of these algorithms into separate classes "strategy classes"
+- the main / original class is called the context , and must have a reference to one of the strategies ( access them through interface )
+- the context delegates the work to that linked strategy object , instead of executing it on it's own 
+- context isn't responible for either how each algorithm is implemented , or selecting an appropriate choice
+- the client is the one that chooses what algorithm to be executed ==> must know the differences between algorithms
+- strategies are accessed through interface , that exposes a method for triggering the algorithm in the selected strategy object
+- the context is independent of concrete strategies , so you can add / modify strategies without breaking the context code , or other strategies
+
+					----------------------------------------------------------------------------------------------------------------------
+
+- Structure
+1. Context : maintains a reference to one of the concrete classes , and communicate with it only via the strategy interface
+2. Strategy interface : implemented by all concrete strategies , and provides a method for the context to execute the strategy
+3. Concrete strategies : implement different variations of the algorithm the context uses
+4. Context calls the execution method on the linked strategy every time it needs to execute it 
+5. Client : creaes a specific strategy object , and passes it to the context ( context exposes a setter to allow to change strategies at runtime )
+
+					----------------------------------------------------------------------------------------------------------------------
+
+- Applicability 
+1. use the strategy pattern when you want to use different variations of an algorithm within an object , and be able to switch from one algorithm to another during runtime => lets you change the object's behavior at runtime by associating it with reference to different concrete strategies
+2. use the strategy pattern when have similar classes that differ in the way they execute some behavior => lets you extract the varying behavior into a separate class hierarchy , and combine the original classes into one ( interface ) , so it reduces duplicate code
+3. use the strategy pattern to isolate the business logic from the implementation
+4. use the strategy pattern when your class has a massive conditional operator ( if ... else if .... else if ... else if ... else ... )
+
+					----------------------------------------------------------------------------------------------------------------------
+
+- How to implement 
+1. identify the algorithm that frequently changes ( it may be several conditions that chooses between several variants of the same algorithm )
+2. declare the strategy interface common to all variants of the algorithm & has the execution method 
+3. extract algorithms one by one and put each in it's own class , and make it implement the interface
+4. in the context class , add a reference ( field / attribute ) to a strategy object , and provide a setter to allow runtime changes of the algorithm
+5. context work with strategy object only through the interface
+6. clients of the context , must decide and provide the suitable strategy for them
+
+					----------------------------------------------------------------------------------------------------------------------
+
+- Pros & cons 
+- pros :
+	1. you can swap algorithms at runtime
+	2. you can isolate/extract implementation details of the algorithm from the code that uses it
+	3. the design satisfies "favor composition over inheritance" design principle
+	4. the design satisfies OCP solid principle since you can add new strategies without changing the context
+- cons :
+	1. if you only have 2 variants of an algorithm , it may not be worthy to over complicate the code 
+	2. clients must be aware of the algorithms and the differences between them to be able to select the proper one

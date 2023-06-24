@@ -1,5 +1,5 @@
 # Object Oriented Design Course
-Oop concepts , design and solid principle , and design patterns
+Oop concepts , design and solid principles , and design patterns
 
 ## Audience
 To anyone knows or don't know design principles and patterns , I hope you find this repo useful for you as a study or a revision

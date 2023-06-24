@@ -10,7 +10,7 @@ To anyone who knows or don't know design principles and patterns , I hope you fi
 3. Desing patterns recap with detailed notes explaining for each pattern the difinition , when to use , the structure , applicability , pros & cons , and code examples
 
 ## Examples
-I will put references to websites that have the provided examples ( if any ) ,  EX. geeks for geeks , ..etc
+I will put references to websites that have the provided examples ( if any ) , examples & references will be found with each pattern
 
 
 

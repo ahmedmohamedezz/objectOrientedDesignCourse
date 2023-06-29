@@ -1,0 +1,4 @@
+- example link ==>     https://www.geeksforgeeks.org/strategy-pattern-set-2/
+- This example simulates a the fighter problem , where you have several figthers that have somethings shared like the behavior of "Punching" and "Rolling"
+- fighter also differ in some behaviors like Jumping & Kicking behaviors
+- notice we have several fighters that can do several similar behaviors

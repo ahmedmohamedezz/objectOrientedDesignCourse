@@ -1,0 +1,5 @@
+- This example simulates a navigator application , where you can choose the strategy you want to get from source to destination
+- Strategies available 
+	1. walking strategy
+	2. Riding your own car strategy
+	3. Public transport strategy

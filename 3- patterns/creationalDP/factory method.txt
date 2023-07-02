@@ -1,0 +1,55 @@
+- factory method is a creational design pattern that provides an interface for creating objects in the superclass , but let subclasses determine the type of objects to be created
+- instead of coupling your code to specific classes that if changed , you'll be breaking big part of the code => leave the object creation responsibility to the factory method , and make the client code just use whatever returned object 
+- this change will let you modify and extend several objects from the factory without affecting the client code
+- the code uses the factory method ( called the client ) doesn't see a difference between the objects returned by the factory method ( generic type )
+- the client code don't know how the objects returned from the factory are implemented
+- factory method can be declared as abstract method to force all subclasses to implement thier versions of the method ( still can return default type )
+- despite the creator class have the factory method , it's not the main responsibility of that class
+- the factory method doesn't have to return new objects ( it may reuse existing ones )
+
+					----------------------------------------------------------------------------------------------------------------------
+
+- Structure 
+1. product : declares an interface , which is common to all objects that can be produced by the creator and it's subclasses
+2. concrete products : different implementations of the product interface
+3. creator class : declares the factory method that returns new product objects ( it's return type must match the type of the product interface )
+4. concrete creators : overrides the base factory method so it returns a different types of products
+
+					----------------------------------------------------------------------------------------------------------------------
+
+- Applicability 
+- use the factory method when you don't know beforehand the exact types & dependencies of the object your code should work with => as this pattern separates the product creation code from the code that uses it ( so you easily extend the construction code without affecting the clients code )
+- use the factory method when you want to save system resources by re-using exisiting objects instead of rebuilding them each time
+
+					----------------------------------------------------------------------------------------------------------------------
+
+- How to implement
+1. make all products follow the same interface ( which have methods that makes sence in every product )
+2. create an empty factory method inside the creator class , with a return type that matches the product interface 
+3. in the creator's code => find all references to product constructors and replace them by calls to the factory method while extracting the product creation code into the factory method
+4. create a set of creator subclasses for each type of product , and override the factory method if needed
+5. if the products are too many ( products have sub products )
+	- either to split into more specific ones
+	- or let the client code send a parameter to the factory method to choose which sub product it wants
+6. after all if the factory method is empty => declare it abstract , otherwise you can leave it's default code
+
+					----------------------------------------------------------------------------------------------------------------------
+
+- Pros and cons
+- Pros
+	1. you avoid tight coupling between the creator class , and the concrete products
+	2. you satisfy SRP , since the product creation code is put into single place ( factory method )
+	3. you satisfy OCP , since you can extend products easily without breaking the client code
+- Cons
+	1. the code may become more complicated since you may need to make many subclasses to implement the pattern
+
+					----------------------------------------------------------------------------------------------------------------------
+- notes
+- the factory method is a specialization of the template method , and may also serve as a step in it
+
+
+
+
+
+
+

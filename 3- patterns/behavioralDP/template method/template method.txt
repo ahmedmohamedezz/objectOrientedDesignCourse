@@ -1,0 +1,46 @@
+- template method : behavioral pattern that defines the skeleton of an algorithm in the superclass , but let's subclasses override specific steps of the algorithm without changing it's structure
+- the template method patterns suggests that you break an algorithm into steps , turn these steps into methods , and put a series of calls to these methods inside single template method
+	- the steps mayby abstract , or have default implementation ( and still can be overriden )
+	- to use the algorithm , every client should provide it's own subclass & implement the abstract steps and override the optional ones if needed
+	- no client can override the template method itself
+- the superclass can have several template methods
+- sublclasses can override methods with default code ( to change that behavior , or REMOVE it from it's type )
+- template method can be declared "final" to prevent subclasses from overriding it
+
+					----------------------------------------------------------------------------------------------------------------------
+
+- Structure
+1. abstract class : declare methods that act as steps of the algorithm and the template method that calls those steps in specific order , the steps can be abstract or have default implementation
+2. concrete classes : can override all the steps ( but not the template method itself )
+
+					----------------------------------------------------------------------------------------------------------------------
+
+- Applicability 
+- use the template method when you want to let clients extend particular steps of an algorithm , but not the whole algorithm or it's structure
+- use the template method when have several classes that contain almost identical algorithm with some minor differences => when you turn an algorithm into template method , the similar implementations can be pulled up in the super class ( eliminating code duplication & and reducing the effect of change )
+
+					----------------------------------------------------------------------------------------------------------------------
+
+- How to implement
+1. determine the algorithm and see whether it can be broken to steps or not 
+2. determine the abstract steps ( have to be unique in all subclasses ), and the common ones
+3. create the abstract base class and the method that simulate steps , and declare the template method => in which outline the algorithm structure by executing corresponding steps
+4. it's okay if all the steps end up abstract steps , however some steps may benefit from having a default implementation ( so some subclasses don't have to override it )
+5. think of adding hooks between crucial steps of the algorithm
+6. for each variation of the algorithm , create a new subclass ( it must implement all the abstract steps )
+
+					----------------------------------------------------------------------------------------------------------------------
+
+- Pros and cons
+- Pros
+	1. you can pull the duplicate code in the superclass ( code reuse )
+	2. you can let clients override certain parts of large algorithm , making them less affected by changes happens to the remaining parts of the algorithm
+- Cons
+	1. template methods are harder to maintain when they have a great number of steps in them
+	2. some clients may limited by the provided steps ( skeleton ) of the algorithm
+
+					----------------------------------------------------------------------------------------------------------------------
+- notes 
+- template method uses inheritance => it let's you alter parts of the algorithm through extending the base class , while strategy pattern uses composition => it lets you alter parts by passing different objects ( can work at run time )
+		- template methods works at class level => static
+		- strategy work at object level => dynamic

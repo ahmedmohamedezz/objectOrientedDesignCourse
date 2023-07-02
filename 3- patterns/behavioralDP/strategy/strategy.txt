@@ -45,3 +45,4 @@
 - cons :
 	1. if you only have 2 variants of an algorithm , it may not be worthy to over complicate the code 
 	2. clients must be aware of the algorithms and the differences between them to be able to select the proper one
+

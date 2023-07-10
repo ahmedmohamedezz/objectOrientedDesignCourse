@@ -1,0 +1,58 @@
+- abstract factory : creational design pattern that lets you produce families of related objects without specifying thier concrete classes ( client only know the abstract factory )
+
+- imagine you're creating a furniture app , you have a family of related products ( chair + sofa + table ) , and you have several variants of those families ( modern type , vectorian type , or french type )
+
+- you need a way to create objects so that they match the same type of that family variant ( chair model is the same as sofa and table )
+- you also need to save the client code from breaking everytime you add a new family of products , or a new variant
+
+1. the first thing this pattern suggests is to create individual interfaces for each type of product ( chair , sofa , table ) 
+	- make all variants of products follow those interafces ( all chairs should implement the chair interface )
+
+2. the next step is to create the abstract factory => "interface" with a set of creation methods for each type of product ( getChair() , getSofa() , getTable() )
+	- those methods return abstract types
+
+3. now define the concrete factories , each returns products of a particular kind => ModernFactory returns ( modern chair + modern sofa + modern table )
+
+4. the client code works with the abstract factory to allow changing the family it want to use , without breaking any code
+
+5. the client code don't know about specific families , it treats all as the same through the interface ( abstract factory )
+6. since the client only works with the abstract interface , an initialization step is to decide which concrete factory you need to work with
+
+							--------------------------------------------------------------------------------------------------------
+
+- Structure
+
+1. abstract products : declare interfaces for a set of distinct but related products , which make up a product family
+2. concrete products : various implementations of abstract products , grouped by variants => each abstract product must be implemented by all given variants
+	- all types of chairs implement the chair interface
+3. abstract factory : interface declares a set of methods for creating each of abstract products
+4. concrete factories : implement creation methods in the abstract factory , each factory corresponds to specific variant of products and creates ONLY those
+5. signature of the creation methods in the abstract factory must match the interface of each product 
+	- don't return a specific type of chairs , instead return a generic chair type
+
+							--------------------------------------------------------------------------------------------------------
+
+- Applicability
+- use the abstract factroy pattern when your code needs to work with various families of related products , and you don't want it to depend on the concrete types of those product 
+	- it can also be used if you don't know the types beforehand , or you simply want to allow for future extensibility
+- consider implementing the abstract factory when you have a class with a set of factory methods
+
+							--------------------------------------------------------------------------------------------------------
+
+- How to implement
+1. map out a matrix of distinct product types virsus variants of these products
+2. declare abstract interface for each type of product & make each set of product types implemenet the proper interface
+3. declare the abstract factory interface with a set of creation methods ( method for each product )
+4. implement the concrete factories
+5. you may need an initialization step to pass to the app the suitable factory 
+
+							--------------------------------------------------------------------------------------------------------
+
+- Pros and Cons
+- Pros : 
+	1. you can be sure that the products returned from a factory are compatible with each other
+	2. you avoid coupling the client code to the concrete types of products
+	3. you satisfy SRP , you can extract the product creation code into 1 place ( factories )
+	4. you satisfy OCP , you can introduct new variants of products without breaking the client code
+- Cons : 
+	1. the code may become more complicated than it should be
